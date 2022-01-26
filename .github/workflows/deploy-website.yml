@@ -1,0 +1,30 @@
+name: deploy-website
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        uses: shalzz/zola-deploy-action@v0.15.3
+        env:
+          BUILD_DIR: .
+          BUILD_ONLY: true
+          BUILD_THEMES: true
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-asw-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region:  ${{ secrets.AWS_REGION }}
+      - name: Deploy
+        run: |
+          aws s3 sync public s3://${{ secrets.AWS_S3_BUCKET }}
+          aws configure set preview.cloudfront true
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
