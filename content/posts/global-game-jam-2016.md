@@ -4,7 +4,7 @@ date = 2016-02-01
 draft = false
 +++
 
-[![GGJ 2016 Asset Linupe](/images/ggj2016_asset_lineupjpg.jpg)](/images/ggj2016_asset_lineupjpg.jpg)
+[![GGJ 2016 Asset Linupe](/images/ggj2016/ggj2016_asset_lineupjpg.jpg)](/images/ggj2016/ggj2016_asset_lineupjpg.jpg)
 
 So, I did the [Global Game Jam](http://globalgamejam.org/) this year. It was crazy, and fun, and crazy fun. I met some awesome new people, and dusted off my modelling skills for 48 hours. The above image contains the majority of assets I made. Most of the textures were made by me, but the Cthuhlu logo was made by my good friend, and fellow artist on the project, [Corey Sewell](http://coreysewell.daportfolio.com/). So, as a look back on the project, I'd like to go over the good and the bad.
 
