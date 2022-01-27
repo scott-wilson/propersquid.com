@@ -2,6 +2,10 @@
 title = "How I Structure Code"
 date = 2018-07-14
 draft = false
+
+[taxonomies]
+categories = ["Programming"]
+tags = ["programming", "python"]
 +++
 
 This is an example of how I structure code in Python, but the rules I follow applies to any other language. This page may update as my styles change, or there's more information I can add.

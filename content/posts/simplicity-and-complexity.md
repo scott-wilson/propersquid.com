@@ -2,6 +2,10 @@
 title = "Simplicity and Complexity"
 date = 2018-09-04
 draft = false
+
+[taxonomies]
+categories = ["Programming"]
+tags = ["programming", "python"]
 +++
 
 As far as I can tell, there's two ways to do software development. Simplicity through complexity and complexity through simplicity. But, before I go into which one I prefer, let's look at some examples which will hopefully explain my reasoning.

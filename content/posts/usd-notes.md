@@ -5,7 +5,7 @@ draft = false
 
 [taxonomies]
 categories = ["Programming", "CG"]
-tags = ["usd", "programming", "cg"]
+tags = ["usd", "programming", "cg", "resources"]
 +++
 
 Here's some notes I have on creating USD scenes from Maya. This'll hopefully grow and possibly become a bit more coherent.

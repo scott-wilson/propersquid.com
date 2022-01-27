@@ -2,6 +2,10 @@
 title = "Another Way to Think About Classes"
 date = 2018-05-25
 draft = false
+
+[taxonomies]
+categories = ["Programming"]
+tags = ["programming", "python", "classes"]
 +++
 
 One of my friends is learning Python. Which I find exciting, because I am always interested in seeing people learn a skill I really enjoy, and also it is an opportunity for me to help them learn how to program.

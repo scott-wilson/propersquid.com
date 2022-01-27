@@ -2,6 +2,10 @@
 title = "Global Game Jam 2016"
 date = 2016-02-01
 draft = false
+
+[taxonomies]
+categories = ["Global Game Jam"]
+tags = ["global-game-jam", "ggj2016"]
 +++
 
 [![GGJ 2016 Asset Linupe](/images/ggj2016/ggj2016_asset_lineupjpg.jpg)](/images/ggj2016/ggj2016_asset_lineupjpg.jpg)

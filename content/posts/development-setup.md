@@ -2,6 +2,10 @@
 title = "Development Setup"
 date = 2018-05-27
 draft = false
+
+[taxonomies]
+categories = ["Programming"]
+tags = ["programming", "environment"]
 +++
 
 This is mostly for me, but if you want the same (or similar) development setup I have, then here's the tools I use.
