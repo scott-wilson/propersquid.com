@@ -44,11 +44,17 @@ The following projects are part of the Maya and Nuke pipeline.
 Experience
 ==========
 
+Scanline VFX
+------------
+
+### Workflow Engineer
+*July 2022 - Present*
+
 Stellar Creative Lab
 --------------------
 
 ### Lead Pipeline TD
-*November 2019 - Present*
+*November 2019 - July 2022*
 
 - Main point of contact for the one of the projects.
 - Developing and maintaining the core and Maya pipeline.
