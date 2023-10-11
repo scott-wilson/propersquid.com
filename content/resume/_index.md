@@ -50,6 +50,9 @@ Scanline VFX
 ### Workflow Engineer
 *July 2022 - Present*
 
+- Mentoring developers in the team.
+- Developing and maintaining the workflow tools and processes.
+
 Stellar Creative Lab
 --------------------
 
