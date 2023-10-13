@@ -141,6 +141,6 @@ Studied the following:
 Proficiencies
 =============
 
-**Code:** Python, Go, C++, SQL, TypeScript, JavaScript, Bash
+**Code:** Python, Rust, Go, C++, SQL, TypeScript, JavaScript, Bash
 
 **Software:** Maya, Nuke, Katana, Softimage, Photoshop, Blender, Krita, RV, Shotgun
