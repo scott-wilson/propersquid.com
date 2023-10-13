@@ -26,11 +26,14 @@ navbar_items = [
         { url = "$BASE_URL/", name = "Home" },
         { url = "$BASE_URL/posts", name = "Posts" },
         { url = "$BASE_URL/docs", name = "Docs" },
+        { url = "$BASE_URL/projects", name = "Projects" },
         { url = "$BASE_URL/tags", name = "Tags" },
         { url = "$BASE_URL/categories", name = "Categories" },
         { url = "$BASE_URL/resume", name = "Resume" },
     ] },
 ]
+mermaid.enabled = true
+chart.enabled = true
 
 [extra.author]
 name = "Scott"
@@ -42,5 +45,6 @@ github = "scott-wilson"
 twitter = "propersquid"
 linkedin = "scott-wilson-9876a767"
 stackoverflow = "3108288"
-mastodon = "https://mastodon.social/@propersquid"
+mastodon_username = "@propersquid"
+mastodon_server = "https://mastodon.social"
 keybase = "propersquid"
