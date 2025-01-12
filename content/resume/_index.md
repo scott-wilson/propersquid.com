@@ -1,6 +1,5 @@
 +++
 title = "Resume"
-date = 2018-11-07
 draft = false
 +++
 
