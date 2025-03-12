@@ -22,13 +22,18 @@ jobs:
     name: build propersquid.com
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
+        with:
+          egress-policy: audit
+
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           submodules: 'recursive'
 
       - name: Install Zola
-        uses: taiki-e/install-action@v2
+        uses: taiki-e/install-action@03351cfd91ee8253b66020be1ad81991e6ba3502 # v2.49.20
         with:
           tool: zola@0.19.2
       - name: Build
@@ -38,7 +43,7 @@ jobs:
 
 # Please do not touch the following action
       - name: Store deployment content
-        uses: ionos-deploy-now/artifact-action@v1
+        uses: ionos-deploy-now/artifact-action@f5c01a9ce3f87926a1f411416c92f78676cd000a # v1.1.0
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-us.ionos.space

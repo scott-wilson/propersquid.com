@@ -18,8 +18,13 @@ jobs:
       deployment-enabled: ${{ fromJson(steps.project.outputs.info).deployment-enabled }}
       branch-id: ${{ fromJson(steps.project.outputs.info).branch-id }}
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
+        with:
+          egress-policy: audit
+
       - name: Fetch project data
-        uses: ionos-deploy-now/project-action@v1
+        uses: ionos-deploy-now/project-action@e1748feff341c1f87221e22926f57483513b455e # v1.1.0
         id: project
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
@@ -45,8 +50,13 @@ jobs:
       - build
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
+        with:
+          egress-policy: audit
+
       - name: Dispatch deployment(s)
-        uses: ionos-deploy-now/project-action@v1
+        uses: ionos-deploy-now/project-action@e1748feff341c1f87221e22926f57483513b455e # v1.1.0
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-us.ionos.space

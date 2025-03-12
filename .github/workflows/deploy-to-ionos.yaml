@@ -35,8 +35,13 @@ jobs:
       matrix:
         deployment-id: ${{ fromJson(inputs.deployment-ids) }}
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
+        with:
+          egress-policy: audit
+
       - name: Update deployment status
-        uses: ionos-deploy-now/project-action@v1
+        uses: ionos-deploy-now/project-action@e1748feff341c1f87221e22926f57483513b455e # v1.1.0
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-us.ionos.space
@@ -47,7 +52,7 @@ jobs:
           status: in_progress
 
       - name: Retrieve stored deployment
-        uses: ionos-deploy-now/artifact-action@v1
+        uses: ionos-deploy-now/artifact-action@f5c01a9ce3f87926a1f411416c92f78676cd000a # v1.1.0
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-us.ionos.space
@@ -57,7 +62,7 @@ jobs:
           action: download
 
       - name: Fetch deployment info
-        uses: ionos-deploy-now/project-action@v1
+        uses: ionos-deploy-now/project-action@e1748feff341c1f87221e22926f57483513b455e # v1.1.0
         id: deployment
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
@@ -68,7 +73,7 @@ jobs:
           action: retrieve-info
 
       - name: Render templates
-        uses: ionos-deploy-now/template-renderer-action@v2
+        uses: ionos-deploy-now/template-renderer-action@87d370e12ff6ff9cb8d6159d89ae8a50090c8ca9 # v2.1.0
         id: template
         with:
           deployment-id: ${{ matrix.deployment-id }}
@@ -87,7 +92,7 @@ jobs:
         run: echo SSH_USERNAME_SECRET=IONOS_DEPLOYMENT_`echo ${{ matrix.deployment-id }} | tr '[:lower:]' '[:upper:]' | tr '-' '_'`_SSH_USERNAME >> $GITHUB_ENV
 
       - name: Deploy to IONOS
-        uses: ionos-deploy-now/deploy-to-ionos-action@v2
+        uses: ionos-deploy-now/deploy-to-ionos-action@07ee981a2e585b953d2721d6816a68a60ea120d2 # v2.0.1
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-us.ionos.space
@@ -100,7 +105,7 @@ jobs:
 
       - name: Update deployment status
         if: ${{ always() }}
-        uses: ionos-deploy-now/project-action@v1
+        uses: ionos-deploy-now/project-action@e1748feff341c1f87221e22926f57483513b455e # v1.1.0
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-us.ionos.space
@@ -115,8 +120,13 @@ jobs:
     if: ${{ github.event_name == 'workflow_dispatch' && always() }}
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
+        with:
+          egress-policy: audit
+
       - name: Notify all deployments finished
-        uses: ionos-deploy-now/project-action@v1
+        uses: ionos-deploy-now/project-action@e1748feff341c1f87221e22926f57483513b455e # v1.1.0
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-us.ionos.space
