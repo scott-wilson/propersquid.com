@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - main
+permissions:
+  contents: read
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -11,11 +14,16 @@ jobs:
       contents: read
       security-events: write
     steps:
-      - uses: actions/checkout@v2
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@4d991eb9b905ef189e4c376166672c3f2f230481 # v2.11.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
         with:
           submodules: recursive
       - name: Install Zola
-        uses: taiki-e/install-action@v2
+        uses: taiki-e/install-action@03351cfd91ee8253b66020be1ad81991e6ba3502 # v2.49.20
         with:
           tool: zola@0.19.2
       - name: Build
@@ -23,7 +31,7 @@ jobs:
           echo "Building website with $(zola --version)..."
           zola build
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1-node16
+        uses: aws-actions/configure-aws-credentials@023daa7fe5f7f817faa31fc0fc4a8d0fb6224ed0 # v1-node16
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
