@@ -33,7 +33,7 @@ jobs:
           submodules: 'recursive'
 
       - name: Install Zola
-        uses: taiki-e/install-action@03351cfd91ee8253b66020be1ad81991e6ba3502 # v2.49.20
+        uses: taiki-e/install-action@7bf3bbf3104a2e9a77906ccbdf6d4aa6a87b0210 # v2.52.5
         with:
           tool: zola@0.19.2
       - name: Build
